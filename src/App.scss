@@ -2,6 +2,30 @@ $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+$body: #5d636f;
+
+
+body {
+  background-color: $body;
+}
+
+.blogs {
+  align-items: center;
+  background-color: rgba(29, 31, 34, 0.7);
+  border-bottom: 8px solid rgba(29, 31, 34, 0.7);
+  border-left: 8px solid rgba(29, 31, 34, 0.7);
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.single-blog {
+  background-color: rgb(205, 210, 240);
+  margin: 10px;
+  border-radius: 5px;
+}
 
 .flash-success,
 .flash-warning,

@@ -8,6 +8,8 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Blogs from './Blogs'
+import SingleBlog from './SingleBlog'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -31,7 +33,7 @@ class App extends Component {
 
   render () {
     const { alerts, user } = this.state
-
+    console.log(user)
     return (
       <React.Fragment>
         <Header user={user} />
@@ -43,6 +45,10 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Blogs alert={this.alert} setUser={this.setUser} />
+          )} />
+          <Route exact path='/blogs/:id' component={SingleBlog}/>
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
