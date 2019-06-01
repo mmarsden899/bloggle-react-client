@@ -9,17 +9,25 @@ class SingleBlog extends Component {
     super(props)
 
     this.state = {
-      blog: {}
+      blog: {},
+      comments: []
     }
   }
 
   async componentDidMount () {
     const response = await axios(`${apiUrl}/blogs/${this.props.match.params.id}`)
-    this.setState({ blog: response.data.blog })
+    this.setState({ blog: response.data.blog, comments: response.data.comments })
   }
 
   render () {
     const { blog } = this.state
+
+    const commentview = this.state.comments.map(comment => (
+      <div key={comment._id} className="single-blog">
+        <p>{comment.text}</p><p>by: {comment.owner._id}</p>
+      </div>
+    ))
+
     return (
       <div>
         <Link to="/"><h5>x</h5></Link>
@@ -27,6 +35,9 @@ class SingleBlog extends Component {
           <div className="single-blog">
             <p>{blog.title}</p>
             <p>{blog.text}</p>
+          </div>
+          <div>
+            {commentview}
           </div>
         </div>
       </div>
